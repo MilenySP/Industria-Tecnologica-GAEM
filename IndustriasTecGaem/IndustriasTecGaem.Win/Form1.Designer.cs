@@ -101,6 +101,7 @@
             this.productosBLBindingNavigator.Size = new System.Drawing.Size(609, 25);
             this.productosBLBindingNavigator.TabIndex = 1;
             this.productosBLBindingNavigator.Text = "bindingNavigator1";
+            this.productosBLBindingNavigator.RefreshItems += new System.EventHandler(this.productosBLBindingNavigator_RefreshItems);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -203,11 +204,13 @@
             // contextoBindingSource
             // 
             this.contextoBindingSource.DataSource = typeof(IndustriasTecGaem.BL.Contexto);
+            this.contextoBindingSource.CurrentChanged += new System.EventHandler(this.contextoBindingSource_CurrentChanged);
             // 
             // listaDeProductosBindingSource
             // 
             this.listaDeProductosBindingSource.DataMember = "ListaDeProductos";
             this.listaDeProductosBindingSource.DataSource = this.productosBLBindingSource;
+            this.listaDeProductosBindingSource.CurrentChanged += new System.EventHandler(this.listaDeProductosBindingSource_CurrentChanged);
             // 
             // listaDeProductosDataGridView
             // 
