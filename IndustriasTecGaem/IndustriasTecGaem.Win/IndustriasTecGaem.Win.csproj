@@ -76,6 +76,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\IndustriasTecGaem.BL.Categorias.datasource" />
     <None Include="Properties\DataSources\IndustriasTecGaem.BL.Contexto.datasource" />
     <None Include="Properties\DataSources\IndustriasTecGaem.BL.Producto.datasource" />
     <None Include="Properties\DataSources\IndustriasTecGaem.BL.ProductosBL.datasource" />

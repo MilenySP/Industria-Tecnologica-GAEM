@@ -36,5 +36,10 @@ namespace IndustriasTecGaem.Win
         {
 
         }
+
+        private void productosBLBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

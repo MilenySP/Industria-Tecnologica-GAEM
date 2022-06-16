@@ -71,6 +71,7 @@
             // productosBLBindingSource
             // 
             this.productosBLBindingSource.DataSource = typeof(IndustriasTecGaem.BL.ProductosBL);
+            this.productosBLBindingSource.CurrentChanged += new System.EventHandler(this.productosBLBindingSource_CurrentChanged);
             // 
             // productosBLBindingNavigator
             // 
