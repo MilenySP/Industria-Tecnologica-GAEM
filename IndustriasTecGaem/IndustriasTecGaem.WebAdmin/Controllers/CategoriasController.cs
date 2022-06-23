@@ -31,8 +31,18 @@ namespace IndustriasTecGaem.WebAdmin.Controllers
         [HttpPost]//para que habra las paginas
         public ActionResult Crear(Categorias categoria)
         {
-            _categoriasBL.GuardarCategorias(categoria);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                if (categoria.Descripcion != categoria.Descripcion.Trim())
+                {
+                    ModelState.AddModelError("Descripcion", "La descripcion no debe de contener espacio al inicio o al final");
+                    return View(categoria);
+                }
+                _categoriasBL.GuardarCategorias(categoria);
+                return RedirectToAction("Index");
+            }
+
+            return View(categoria);
         }
 
         public ActionResult Editar(int id)
@@ -43,8 +53,18 @@ namespace IndustriasTecGaem.WebAdmin.Controllers
         [HttpPost]//para que habra las paginas
         public ActionResult Editar(Categorias categoria)
         {
-            _categoriasBL.GuardarCategorias(categoria);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                if (categoria.Descripcion != categoria.Descripcion.Trim())
+                {
+                    ModelState.AddModelError("Descripcion", "La descripcion no debe de contener espacio al inicio o al final");
+                    return View(categoria);
+                }
+                _categoriasBL.GuardarCategorias(categoria);
+                return RedirectToAction("Index");
+            }
+
+            return View(categoria);
         }
 
         public ActionResult Detalle(int id)

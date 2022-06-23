@@ -19,7 +19,9 @@ namespace IndustriasTecGaem.BL
 
         public List<Producto> ObtenerProductos()
         {
-            ListaDeProductos = _contexto.Productos.ToList();
+            ListaDeProductos = _contexto.Productos
+                .Include("categoria")
+                .ToList();
             return ListaDeProductos;
         }
 
@@ -32,14 +34,19 @@ namespace IndustriasTecGaem.BL
             {
                 var productoExistente = _contexto.Productos.Find(producto.Id);
                 productoExistente.Descripcion = producto.Descripcion;
+                productoExistente.CategoriaId = producto.CategoriaId;
                 productoExistente.Precio = producto.Precio;
+                //actualiza la informacion cuando se edita una imagen
+                productoExistente.UrlImagen = producto.UrlImagen;
             }
 
             _contexto.SaveChanges();
         }
          public Producto ObtenerProductos (int id)
         {
-            var producto = _contexto.Productos.Find(id);
+            var producto = _contexto.Productos
+                .Include("categoria").FirstOrDefault(p => p.Id == id);
+
             return producto;
         }
 
