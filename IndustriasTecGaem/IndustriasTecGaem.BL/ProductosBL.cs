@@ -21,6 +21,18 @@ namespace IndustriasTecGaem.BL
         {
             ListaDeProductos = _contexto.Productos
                 .Include("categoria")
+                .OrderBy(r => r.categoria.Descripcion)
+                .ThenBy(r => r.Descripcion)
+                .ToList();
+            return ListaDeProductos;
+        }
+
+        public List<Producto> ObtenerProductosActivos()
+        {
+            ListaDeProductos = _contexto.Productos
+                .Include("categoria")
+                .Where(r => r.Activo == true)
+                .OrderBy(r => r.Descripcion)
                 .ToList();
             return ListaDeProductos;
         }

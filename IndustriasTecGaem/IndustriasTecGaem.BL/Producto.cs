@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace IndustriasTecGaem.BL
 {
+    /*public Producto()
+    {
+        Activo = true;
+    }*/
+
     public class Producto
     {
         public int Id { get; set; }

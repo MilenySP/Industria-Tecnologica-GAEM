@@ -21,7 +21,7 @@ namespace IndustriasTecGaem.WebAdmin.Controllers
         // GET: Productos
         public ActionResult Index()
         {
-            var listadeProductos = _productosBL.ObtenerProductos();
+            var listadeProductos = _productosBL.ObtenerProductosActivos();
 
             return View(listadeProductos);
         }
