@@ -1,5 +1,7 @@
-﻿using System;
+﻿using IndustriasTecGaem.BL;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,7 +13,11 @@ namespace IndustriasTecGaem.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var productosBL = new ProductosBL();
+            var listaDeProductos = productosBL.ObtenerProductosActivos();
+
+            ViewBag.admiWebsiteUrl = ConfigurationManager.AppSettings["admiWebsiteUrl"];
+            return View(listaDeProductos);
         }
     }
 }
