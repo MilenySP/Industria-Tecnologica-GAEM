@@ -7,8 +7,10 @@ using System.Web.Mvc;
 
 namespace IndustriasTecGaem.WebAdmin.Controllers
 {
+    [Authorize]
     public class ProductosController : Controller
     {
+       
         ProductosBL _productosBL;
         CategoriasBL _categoriasBL;
 
